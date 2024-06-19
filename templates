@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Paschal's Supermarket</title>
+</head>
+<body>
+    <h1>Welcome to Paschal's Supermarket</h1>
+    <a href="/register">Register</a> | 
+    <a href="/login">Login</a> | 
+    <a href="/items">View Items</a>
+</body>
+</html>
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+</head>
+<body>
+    <h1>Register</h1>
+    <form action="/register" method="post">
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" name="firstName"><br>
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" name="lastName"><br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email"><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password"><br>
+        <label for="confirmPassword">Confirm Password:</label>
+        <input type="password" id="confirmPassword" name="confirmPassword"><br>
+        <button type="submit">Register</button>
+    </form>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+</head>
+<body>
+    <h1>Login</h1>
+    <form action="/login" method="post">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email"><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password"><br>
+        <button type="submit">Login</button>
+    </form>
+</body>
+</html>
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Order Items</title>
+</head>
+<body>
+    <h1>Order Items</h1>
+    <form action="/order" method="post">
+        {% for item in items %}
+            <label for="{{ item.name }}">{{ item.name }} ({{ item.quantity }} available):</label>
+            <input type="number" id="{{ item.name }}" name="{{ item.name }}" min="0" max="{{ item.quantity }}"><br>
+        {% endfor %}
+        <label for="accountNumber">Account Number:</label>
+        <input type="text" id="accountNumber" name="accountNumber"><br>
+        <button type="submit">Order</button>
+    </form>
+</body>
+</html>
